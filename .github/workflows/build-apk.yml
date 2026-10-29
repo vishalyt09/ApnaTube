@@ -1,5 +1,14 @@
+name: Build ApnaTube APK
+
+on:
+workflow_dispatch:
+
+jobs:
+build-apk:
+runs-on: ubuntu-latest
+
 steps:
-  - name: Checkout code
+  - name: Checkout repository
     uses: actions/checkout@v4
 
   - name: Setup Node.js
@@ -28,13 +37,11 @@ steps:
     working-directory: apps/user-app
     run: npx cap add android
 
-  - name: Sync Capacitor
-    working-directory: apps/user-app
-    run: npx cap sync android
-
   - name: Build APK
-    working-directory: apps/user-app/android
+    working-directory: apps/user-app
     run: |
+      npx cap sync android
+      cd android
       chmod +x gradlew
       ./gradlew assembleDebug
 
