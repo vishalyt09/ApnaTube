@@ -1,16 +1,3 @@
-name: Build ApnaTube APK
-
-on:
-workflow_dispatch:
-push:
-paths:
-- "apps/user-app/**"
-- ".github/workflows/build-apk.yml"
-
-jobs:
-build:
-runs-on: ubuntu-latest
-
 steps:
   - name: Checkout code
     uses: actions/checkout@v4
