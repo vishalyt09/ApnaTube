@@ -1,1 +1,0 @@
-import type { CapacitorConfig } from '@capacitor/cli'; const config: CapacitorConfig = { appId: 'com.digitalv.app', appName: 'Digital V', webDir: 'dist' }; export default config;
